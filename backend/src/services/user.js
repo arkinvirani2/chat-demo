@@ -8,8 +8,6 @@ export const createUser = async ({ bodyData, res }) => {
     if (user) {
       res.sendResponse({ error: "User already exists" }, 400);
     }
-
-    console.log("{ ...bodyData }: ", { ...bodyData });
     user = new User({ ...bodyData });
     await user.save();
     return true;
